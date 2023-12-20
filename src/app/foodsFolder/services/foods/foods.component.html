@@ -1,0 +1,34 @@
+<!-- {{ foodsResponse$ | async | json }} -->
+
+<div>
+  <dx-data-grid
+    [dataSource]="foodsArray"
+    keyExpr="id"
+    [columns]="[
+      'id',
+      'name',
+      'id',
+      'caloriesPer100g',
+      'weight',
+      'nutriScore',
+      'created_at',
+      'updated_at',
+      'photo',
+      'tags'
+    ]"
+    [showBorders]="true"
+  >
+    <dxi-column dataField="id" caption="Id"></dxi-column>
+    <dxi-column dataField="name" caption="Name"></dxi-column>
+    <dxi-column
+      dataField="caloriesPer100g"
+      caption="Calories per 100g"
+    ></dxi-column>
+    <dxi-column dataField="weight" caption="weight"></dxi-column>
+    <dxi-column dataField="nutriScore" caption="nutriScore"></dxi-column>
+    <dxi-column dataField="created_at" caption="created_at"></dxi-column>
+    <dxi-column dataField="updated_at" caption="updated_at"></dxi-column>
+    <dxi-column dataField="photo" caption="photo"></dxi-column>
+    <dxi-column dataField="tags" caption="tags"></dxi-column>
+  </dx-data-grid>
+</div>
