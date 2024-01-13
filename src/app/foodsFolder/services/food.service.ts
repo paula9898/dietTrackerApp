@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FoodResponse } from '../models/food-response.model';
+import { FoodPayload } from '../models/food-payload.model';
+import { API_URL } from 'src/app/apiUrl-const';
 
 @Injectable({
   providedIn: 'root',
@@ -13,5 +15,12 @@ export class FoodService {
     return this.httpClient.get<FoodResponse>(
       'http://localhost:8080/api/foods/'
     );
+  }
+
+  addFood(food: FoodPayload): Observable<FoodPayload> {
+    return this.httpClient.post(
+      `${API_URL}foods`,
+      food
+    ) as Observable<FoodPayload>;
   }
 }
