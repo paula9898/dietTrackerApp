@@ -23,4 +23,10 @@ export class FoodService {
       food
     ) as Observable<FoodPayload>;
   }
+
+  deleteFood(id: number): Observable<FoodPayload> {
+    return this.httpClient.delete(
+      `${API_URL}foods/${id}`
+    ) as Observable<FoodPayload>;
+  }
 }

@@ -13,7 +13,16 @@
       'tags'
     ]"
     [showBorders]="true"
-  >
+    (onRowInserted)="onRowInserted($event)"
+    (onRowRemoved)="onRowRemoved($event)"
+    ><dxo-paging [enabled]="true"></dxo-paging>
+    <dxo-editing
+      mode="row"
+      [allowUpdating]="true"
+      [allowDeleting]="true"
+      [allowAdding]="true"
+    >
+    </dxo-editing>
     <dxi-column dataField="name" caption="Name"></dxi-column>
     <dxi-column
       dataField="caloriesPer100g"
@@ -24,4 +33,14 @@
     <dxi-column dataField="photo" caption="photo"></dxi-column>
     <dxi-column dataField="tags" caption="tags"></dxi-column>
   </dx-data-grid>
+
+  <div id="events">
+    <div>
+      <div class="caption">Fired events</div>
+      <dx-button id="clear" text="Clear" (onClick)="clearEvents()"></dx-button>
+    </div>
+    <ul>
+      <li *ngFor="let event of events">{{ event }}</li>
+    </ul>
+  </div>
 </div>

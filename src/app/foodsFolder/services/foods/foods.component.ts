@@ -20,7 +20,7 @@ export class FoodsComponent implements OnInit {
       // Extract the 'data' array from the response
       this.foodsArray = response.data;
     });
-    this.addFood();
+    // this.addFood();
   }
 
   logEvent(eventName) {
@@ -47,6 +47,12 @@ export class FoodsComponent implements OnInit {
   onRowInserted(event): void {
     const newFood = event.data;
     this.foodStateService.addFood(newFood);
-    // Note: You might need to handle the refresh of the data if necessary.
+    this.foodStateService.getFoods();
+  }
+
+  onRowRemoved(event): void {
+    const deletedFood = event.data.id;
+    this.foodStateService.deleteFood(deletedFood);
+    this.foodStateService.getFoods();
   }
 }
