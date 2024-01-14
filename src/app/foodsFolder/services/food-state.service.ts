@@ -45,4 +45,15 @@ export class FoodStateService {
       },
     });
   }
+
+  updateFood(id: number, food: FoodPayload): void {
+    this.foodService.updateFood(id, food).subscribe({
+      next: () => {
+        this.getFoods();
+      },
+      error: (error) => {
+        this.error$.next(error);
+      },
+    });
+  }
 }

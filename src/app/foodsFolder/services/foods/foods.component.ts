@@ -55,4 +55,10 @@ export class FoodsComponent implements OnInit {
     this.foodStateService.deleteFood(deletedFood);
     this.foodStateService.getFoods();
   }
+  onRowUpdated(event): void {
+    const updatedFoodId = event.data.id;
+    const updatedFood = event.data;
+    this.foodStateService.updateFood(updatedFoodId, updatedFood);
+    this.foodStateService.getFoods();
+  }
 }

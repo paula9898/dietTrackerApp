@@ -29,4 +29,8 @@ export class FoodService {
       `${API_URL}foods/${id}`
     ) as Observable<FoodPayload>;
   }
+
+  updateFood(id: number, food: FoodPayload): Observable<any> {
+    return this.httpClient.put(`${API_URL}foods/${id}`, food);
+  }
 }
