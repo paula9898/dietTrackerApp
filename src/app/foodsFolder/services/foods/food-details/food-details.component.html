@@ -1,0 +1,12 @@
+<div *ngIf="foodDetails">
+  <h2>Food Details</h2>
+  <p>Name: {{ foodDetails.name }}</p>
+  <p>Calories Per 100g:{{ foodDetails.caloriesPer100g }}</p>
+  <p>Weight:{{ foodDetails.weight }}</p>
+  <p>NutriScore:{{ foodDetails.nutriScore }}</p>
+  <p>Photo:</p>
+  <div>
+    <img [src]="foodDetails.photo" alt="Food Photo" style="max-width: 100%" />
+  </div>
+  <p>Tags:{{ foodDetails.tags }}</p>
+</div>

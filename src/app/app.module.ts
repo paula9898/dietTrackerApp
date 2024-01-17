@@ -14,9 +14,16 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoadingInterceptor } from './spinner-interceptor';
+import { FoodDetailsComponent } from './foodsFolder/services/foods/food-details/food-details.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-  declarations: [AppComponent, FoodsComponent, SpinnerComponent],
+  declarations: [
+    AppComponent,
+    FoodsComponent,
+    SpinnerComponent,
+    FoodDetailsComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,6 +32,7 @@ import { LoadingInterceptor } from './spinner-interceptor';
     DxDataGridModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
+    MatDialogModule,
   ],
   providers: [
     {

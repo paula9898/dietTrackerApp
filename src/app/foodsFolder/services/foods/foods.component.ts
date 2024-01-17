@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FoodStateService } from '../food-state.service';
 import { FoodPayload } from '../../models/food-payload.model';
+import { DialogService } from '../dialog.service';
+import { Food } from '../../models/food.model';
 
 @Component({
   selector: 'app-foods',
@@ -12,7 +14,10 @@ export class FoodsComponent implements OnInit {
   foodsArray: any[] = [];
   events: Array<string> = [];
 
-  constructor(private foodStateService: FoodStateService) {}
+  constructor(
+    private foodStateService: FoodStateService,
+    private dialogService: DialogService
+  ) {}
 
   ngOnInit(): void {
     this.foodStateService.getFoods();
@@ -60,5 +65,10 @@ export class FoodsComponent implements OnInit {
     const updatedFood = event.data;
     this.foodStateService.updateFood(updatedFoodId, updatedFood);
     this.foodStateService.getFoods();
+  }
+  onRowClick(event): void {
+    const details = event.data;
+    console.log('Clicked Row Details:', details);
+    this.dialogService.openFoodDetailsDialog(details);
   }
 }

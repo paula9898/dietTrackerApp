@@ -16,6 +16,7 @@
     (onRowInserted)="onRowInserted($event)"
     (onRowRemoved)="onRowRemoved($event)"
     (onRowUpdated)="onRowUpdated($event)"
+    (onRowClick)="onRowClick($event)"
     ><dxo-paging [enabled]="true"></dxo-paging>
     <dxo-editing
       mode="row"
@@ -24,7 +25,7 @@
       [allowAdding]="true"
     >
     </dxo-editing>
-    <dxi-column dataField="name" caption="Name"></dxi-column>
+    <dxi-column dataField="name" caption="Name"> </dxi-column>
     <dxi-column
       dataField="caloriesPer100g"
       caption="Calories per 100g"
