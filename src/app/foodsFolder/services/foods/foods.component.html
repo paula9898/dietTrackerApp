@@ -1,4 +1,6 @@
 <!-- {{ foodsResponse$ | async | json }} -->
+<input type="text" placeholder="Search" #filter />
+<button class="primary" type="button">Search</button>
 
 <div>
   <dx-data-grid
@@ -25,15 +27,24 @@
       [allowAdding]="true"
     >
     </dxo-editing>
+    <dxo-filter-row [visible]="true"></dxo-filter-row>
     <dxi-column dataField="name" caption="Name"> </dxi-column>
     <dxi-column
       dataField="caloriesPer100g"
       caption="Calories per 100g"
     ></dxi-column>
     <dxi-column dataField="weight" caption="weight"></dxi-column>
-    <dxi-column dataField="nutriScore" caption="nutriScore"></dxi-column>
+    <dxi-column dataField="nutriScore" caption="nutriScore">
+      <div *dxTemplate="let data of 'cellTemplate'">
+        <app-nutri-score [nutriScore]="data.data.nutriScore"></app-nutri-score>
+      </div>
+    </dxi-column>
     <dxi-column dataField="photo" caption="photo"></dxi-column>
-    <dxi-column dataField="tags" caption="tags"></dxi-column>
+    <dxi-column dataField="tags" caption="tags" cellTemplate="tags">
+      <div *dxTemplate="let data of 'tags'">
+        {{ data.data.tags | tagsPipe }}
+      </div>
+    </dxi-column>
   </dx-data-grid>
 
   <div id="events">

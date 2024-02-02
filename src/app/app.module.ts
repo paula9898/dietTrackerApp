@@ -16,6 +16,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoadingInterceptor } from './spinner-interceptor';
 import { FoodDetailsComponent } from './foodsFolder/services/foods/food-details/food-details.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NutriScoreComponent } from './foodsFolder/services/foods/nutri-score/nutri-score.component';
+import { TagsPipePipe } from './tags-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     FoodsComponent,
     SpinnerComponent,
     FoodDetailsComponent,
+    NutriScoreComponent,
+    TagsPipePipe,
   ],
   imports: [
     BrowserModule,
