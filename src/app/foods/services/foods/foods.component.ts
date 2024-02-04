@@ -14,6 +14,7 @@ import { TagsPipePipe } from 'src/app/tags-pipe.pipe';
 export class FoodsComponent implements OnInit {
   foodsResponse$ = this.foodStateService.foodsResponse$; //to sa moje dane ktore sa uaktiualniane z kazdm request getfood
   foodsArray: any[] = [];
+  tagsArray: any[] = [];
   events: Array<string> = [];
 
   constructor(
@@ -27,11 +28,16 @@ export class FoodsComponent implements OnInit {
       // Extract the 'data' array from the response
       this.foodsArray = response.data;
 
-      this.foodsArray.forEach((food) => {
+      this.tagsArray.forEach((food) => {
         console.log('Tags for', food.name, ':', food.tags);
         console.log('Tags type for', food.name, ':', typeof food.tags);
       });
+      console.log(this.foodsArray);
     });
+  }
+  customCellTemplate(data) {
+    console.log('Custom Cell Template Data:', data);
+    return data.value;
   }
 
   logEvent(eventName) {

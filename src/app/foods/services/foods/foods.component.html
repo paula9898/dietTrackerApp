@@ -40,9 +40,9 @@
       </div>
     </dxi-column>
     <dxi-column dataField="photo" caption="photo"></dxi-column>
-    <dxi-column dataField="tags" caption="tags" cellTemplate="tags">
-      <div *dxTemplate="let data of 'tags'">
-        {{ data.data.tags | tagsPipe }}
+    <dxi-column dataField="tags" caption="tags" cellTemplate="cellTemplateGrid">
+      <div *dxTemplate="let data of 'cellTemplateGrid'">
+        {{ data.displayValue | tagsPipe }}
       </div>
     </dxi-column>
   </dx-data-grid>

@@ -1,6 +1,6 @@
 import { Component, Inject, Input } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FoodDetails } from 'src/app/foodsFolder/models/food-details.model';
+import { FoodDetails } from 'src/app/foods/models/food-details.model';
 
 @Component({
   selector: 'app-food-details',

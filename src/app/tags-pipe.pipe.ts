@@ -11,7 +11,9 @@ export class TagsPipePipe implements PipeTransform {
     if (!tags) {
       return [];
     }
-    const result = tags.split(',').map((tag) => +tag.trim());
+    const result = tags.split(',').map((tag) => tag.trim());
     console.log('Output Result:', result);
+
+    return ['bum'];
   }
 }
