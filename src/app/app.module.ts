@@ -24,7 +24,7 @@ import { TagsPipePipe } from './tags-pipe.pipe';
     FoodsComponent,
     SpinnerComponent,
     FoodDetailsComponent,
-    TagsPipePipe,
+    [TagsPipePipe],
   ],
   imports: [
     BrowserModule,

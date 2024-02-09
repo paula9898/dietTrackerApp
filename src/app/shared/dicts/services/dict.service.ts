@@ -11,7 +11,7 @@ export class DictService {
 
   getTagsDicts(): Observable<TagResponse> {
     return this.httpClient.get<TagResponse>(
-      'http://localhost:8080/api/dicts/tags'
+      'http://localhost:8080/api/dicts/tags/'
     );
   }
 }

@@ -1,4 +1,5 @@
-<!-- {{ foodsResponse$ | async | json }} -->
+{{ tags$ | async | json }}
+
 <input type="text" placeholder="Search" #filter />
 <button class="primary" type="button">Search</button>
 
@@ -6,14 +7,7 @@
   <dx-data-grid
     [dataSource]="foodsArray"
     keyExpr="id"
-    [columns]="[
-      'name',
-      'caloriesPer100g',
-      'weight',
-      'nutriScore',
-      'photo',
-      'tags'
-    ]"
+    [columns]="['name', 'caloriesPer100g', 'weight', 'nutriScore', 'photo']"
     [showBorders]="true"
     (onRowInserted)="onRowInserted($event)"
     (onRowRemoved)="onRowRemoved($event)"
@@ -40,11 +34,18 @@
       </div>
     </dxi-column>
     <dxi-column dataField="photo" caption="photo"></dxi-column>
-    <dxi-column dataField="tags" caption="tags" cellTemplate="cellTemplateGrid">
-      <div *dxTemplate="let data of 'cellTemplateGrid'">
-        {{ data.displayValue | tagsPipe }}
-      </div>
+    <dxi-column caption="tags" cellTemplate="tags">
+      <!-- <div *dxTemplate="let data of 'tags'">
+        {{ data.value | tagsPipe }}
+      </div> -->
     </dxi-column>
+    <div *dxTemplate="let d of 'tags'">
+      <div [dataSource]="tagsArray"></div>
+    </div>
+    <div *dxTemplate="let d of 'tags'" [value]="d.id">
+      {{ d.name | async }}
+    </div>
+    >
   </dx-data-grid>
 
   <div id="events">
