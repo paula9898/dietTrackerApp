@@ -1,1 +1,23 @@
-<p>bmi-page works!</p>
+<div class="app-container">
+  <dx-data-grid
+    [dataSource]="weightsArray"
+    [columns]="['weight', 'date']"
+    showBorders="true"
+    width="600"
+  >
+    <dxi-column
+      dataField="weight"
+      [fixed]="true"
+      alignment="left"
+      [format]="{ style: 'decimal', minimumFractionDigits: 2 }"
+    >
+      <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-column>
+    <dxi-column dataField="date">
+      <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-column>
+    <dxi-column dataField="BMI">
+      <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-column>
+  </dx-data-grid>
+</div>

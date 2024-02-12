@@ -17,18 +17,18 @@ export class FoodService {
 
   addFood(food: FoodPayload): Observable<FoodPayload> {
     return this.httpClient.post(
-      `${API_URL}foods`,
+      `${API_URL}food`,
       food
     ) as Observable<FoodPayload>;
   }
 
   deleteFood(id: number): Observable<FoodPayload> {
     return this.httpClient.delete(
-      `${API_URL}foods/${id}`
+      `${API_URL}food/${id}`
     ) as Observable<FoodPayload>;
   }
 
   updateFood(id: number, food: FoodPayload): Observable<any> {
-    return this.httpClient.put(`${API_URL}foods/${id}`, food);
+    return this.httpClient.put(`${API_URL}food/${id}`, food);
   }
 }
