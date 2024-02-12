@@ -12,9 +12,7 @@ export class FoodService {
   constructor(private httpClient: HttpClient) {}
 
   getFoods(): Observable<FoodResponse> {
-    return this.httpClient.get<FoodResponse>(
-      'http://localhost:8080/api/foods/'
-    );
+    return this.httpClient.get<FoodResponse>('http://localhost:8080/api/food/');
   }
 
   addFood(food: FoodPayload): Observable<FoodPayload> {
