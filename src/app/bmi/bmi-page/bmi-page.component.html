@@ -1,7 +1,7 @@
 <div class="app-container">
   <dx-data-grid
     [dataSource]="weightsArray"
-    [columns]="['weight', 'date']"
+    [columns]="['weight', 'date', 'BMI']"
     showBorders="true"
     width="600"
   >
@@ -19,5 +19,6 @@
     <dxi-column dataField="BMI">
       <dxi-validation-rule type="required"></dxi-validation-rule>
     </dxi-column>
+    <dxi-column type="buttons"> </dxi-column>
   </dx-data-grid>
 </div>

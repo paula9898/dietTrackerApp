@@ -34,18 +34,11 @@
       </div>
     </dxi-column>
     <dxi-column dataField="photo" caption="photo"></dxi-column>
-    <dxi-column caption="tags" cellTemplate="tags">
-      <!-- <div *dxTemplate="let data of 'tags'">
-        {{ data.value | tagsPipe }}
-      </div> -->
+    <dxi-column dataField="tags$" caption="tags">
+      <div *dxTemplate="let data of 'tags$'">
+        {{ data }}
+      </div>
     </dxi-column>
-    <div *dxTemplate="let d of 'tags'">
-      <div [dataSource]="tagsArray"></div>
-    </div>
-    <div *dxTemplate="let d of 'tags'" [value]="d.id">
-      {{ d.name | async }}
-    </div>
-    >
   </dx-data-grid>
 
   <div id="events">

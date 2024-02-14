@@ -41,7 +41,7 @@ export class FoodsComponent implements OnInit {
     });
     this.dictsStateService.tags$.subscribe((response) => {
       this.tagsArray = response;
-      console.log(this.tagsArray);
+      // console.log(this.tagsArray);
     });
   }
   // customCellTemplate(tags$) {
