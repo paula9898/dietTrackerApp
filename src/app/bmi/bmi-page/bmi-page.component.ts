@@ -5,6 +5,8 @@ import { DxDataGridModule } from 'devextreme-angular';
 import { SettingsService } from './settings.service';
 import { SettingsStateService } from './settings-state.service';
 import { UserSettings } from '../models/settings.model';
+import { Observable, filter, map } from 'rxjs';
+import { BmiTable } from '../models/bmi.model';
 
 @Component({
   templateUrl: './bmi-page.component.html',
@@ -12,26 +14,33 @@ import { UserSettings } from '../models/settings.model';
 })
 export class BmiPageComponent implements OnInit {
   weightsResponse$ = this.weightsStateService.weightResponse$;
-  settingsResponse$ =
+  settingsHeight$ =
     this.settingsStateService.settingsResponse$.getValue().height;
-  weightsArray: any[] = [];
+  bmiTable$ = this.weightsStateService.weightResponse$.pipe(
+    map((response) =>
+      response.data.map((v) => ({
+        ...v,
+        bmi: 10,
+      }))
+    )
+  ); // dla kazdego obiektu z tablicy zwroc ten obiekt i to sa te trzy kropki
+  // d
   height: number;
 
   // settingsResponse$
   ngOnInit(): void {
     this.weightsStateService.getweights();
     this.settingsStateService.getSettings();
-    this.weightsStateService.weightResponse$.subscribe((response) => {
-      this.weightsArray = response.data;
-      this.settingsStateService.settingsResponse$.subscribe((response) => {
-        this.height = response.height;
-        console.log(this.height);
-      });
+    // this.weightsStateService.weightResponse$.subscribe((response) => {
+    //   this.weightsArray = response.data;
+    // this.settingsStateService.settingsResponse$.subscribe((response) => {
+    //   this.height = response.height;
+    //   console.log(this.height);
+    //   console.log(this.settingsHeight$);
+    //   });
 
-      console.log(this.weightsArray);
-
-      console.log(this.settingsResponse$);
-    });
+    //   console.log(this.weightsArray);
+    // });
   }
 
   constructor(

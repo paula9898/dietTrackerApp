@@ -1,7 +1,9 @@
+<pre>{{ bmiTable$ | async | json }}</pre>
+
 <div class="app-container">
   <dx-data-grid
-    [dataSource]="weightsArray"
-    [columns]="['weight', 'date', 'BMI']"
+    [dataSource]="bmiTable$ | async"
+    [columns]="['weight', 'date', 'bmi']"
     showBorders="true"
     width="600"
   >
@@ -16,7 +18,7 @@
     <dxi-column dataField="date">
       <dxi-validation-rule type="required"></dxi-validation-rule>
     </dxi-column>
-    <dxi-column dataField="BMI">
+    <dxi-column dataField="bmi">
       <dxi-validation-rule type="required"></dxi-validation-rule>
     </dxi-column>
     <dxi-column type="buttons"> </dxi-column>
