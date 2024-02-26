@@ -5,8 +5,9 @@ import { DxDataGridModule } from 'devextreme-angular';
 import { SettingsService } from './settings.service';
 import { SettingsStateService } from './settings-state.service';
 import { UserSettings } from '../models/settings.model';
-import { Observable, filter, map } from 'rxjs';
+import { Observable, filter, map, of, switchMap } from 'rxjs';
 import { BmiTable } from '../models/bmi.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   templateUrl: './bmi-page.component.html',
@@ -14,16 +15,32 @@ import { BmiTable } from '../models/bmi.model';
 })
 export class BmiPageComponent implements OnInit {
   weightsResponse$ = this.weightsStateService.weightResponse$;
-  settingsHeight$ =
-    this.settingsStateService.settingsResponse$.getValue().height;
-  bmiTable$ = this.weightsStateService.weightResponse$.pipe(
-    map((response) =>
-      response.data.map((v) => ({
-        ...v,
-        bmi: 10,
-      }))
+  bmiTable$ = this.settingsStateService.settingsResponse$.pipe(
+    map((v) => v.height),
+    switchMap((height) =>
+      this.weightsStateService.weightResponse$.pipe(
+        map((v) =>
+          v.data.map((item) => ({
+            ...item,
+            bmi: item.weight / Math.pow(height / 100, 2),
+          }))
+        )
+      )
     )
-  ); // dla kazdego obiektu z tablicy zwroc ten obiekt i to sa te trzy kropki
+  );
+  routerId$ = of(2);
+  todo$ = this.routerId$.pipe(
+    switchMap((id) => this.httpClient.get('https://dummyjson.com/todos/' + id))
+  );
+  // bmiTable$ = this.weightsStateService.weightResponse$.pipe(
+  //   map((response) =>
+  //     response.data.map((v) => ({
+  //       ...v,
+  //       bmi: 10,
+  //     }))
+  //   )
+  // );
+  // dla kazdego obiektu z tablicy zwroc ten obiekt i to sa te trzy kropki
   // d
   height: number;
 
@@ -45,6 +62,7 @@ export class BmiPageComponent implements OnInit {
 
   constructor(
     private weightsStateService: WeightStateService,
-    private settingsStateService: SettingsStateService
+    private settingsStateService: SettingsStateService,
+    private httpClient: HttpClient
   ) {}
 }
