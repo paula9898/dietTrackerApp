@@ -17,6 +17,8 @@ import { LoadingInterceptor } from './spinner-interceptor';
 import { FoodDetailsComponent } from './foods/services/foods/food-details/food-details.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TagsPipePipe } from './tags-pipe.pipe';
+import { RegisterComponent } from './auth/register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { TagsPipePipe } from './tags-pipe.pipe';
     FoodsComponent,
     SpinnerComponent,
     FoodDetailsComponent,
-    [TagsPipePipe],
+    TagsPipePipe,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import { TagsPipePipe } from './tags-pipe.pipe';
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {
