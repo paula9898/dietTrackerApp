@@ -31,11 +31,15 @@
     <input type="text" formControlName="password" class="form-control" />
   </div>
   <div class="form-group">
-    <label for="password">Confirmed Password</label>
+    <label for="password">Confirm Password</label>
     <input
       type="text"
-      formControlName="confirmedpassword"
+      formControlName="confirmedPassword"
       class="form-control"
     />
   </div>
+  <span *ngIf="registerForm.errors?.['passwordmatcherror']">
+    Password does not match</span
+  >
+  <button class="btn btn-primary btn-block">Sign Up</button>
 </form>

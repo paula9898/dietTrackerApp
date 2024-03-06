@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../models/user.model';
+import { matchpassword } from './matchpassword.validator';
 
 @Component({
   selector: 'app-register',
@@ -25,15 +26,23 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.registerForm = new FormGroup({
-      userName: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
-    });
+    this.registerForm = new FormGroup(
+      {
+        userName: new FormControl('', Validators.required),
+        email: new FormControl('', Validators.required),
+        password: new FormControl('', Validators.required),
+        confirmedPassword: new FormControl('', Validators.required),
+      },
+      {
+        validators: matchpassword,
+      }
+    );
   }
   get fval() {
     return this.registerForm.controls;
   }
+
+  public check;
 
   OnFormSubmit(): void {
     this.submitted = true;
