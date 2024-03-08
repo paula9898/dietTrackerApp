@@ -19,6 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { TagsPipePipe } from './tags-pipe.pipe';
 import { RegisterComponent } from './auth/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NutriScoreComponent } from './foods/services/foods/nutri-score/nutri-score/nutri-score.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FoodDetailsComponent,
     TagsPipePipe,
     RegisterComponent,
+    NutriScoreComponent,
   ],
   imports: [
     BrowserModule,

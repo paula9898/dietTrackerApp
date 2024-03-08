@@ -8,18 +8,16 @@ import { Tag } from './shared/dicts/models/tag.model';
 })
 export class TagsPipePipe implements PipeTransform {
   tagsArray: any[] = [];
-  tags$ = this.dictsStateService.tags$;
+  tagsValue = this.dictsStateService.tagsValue;
   constructor(private dictsStateService: DictsStateService) {}
 
-  transform(tags: string): number[] {
-    console.log('Input Tags:', tags);
-    if (!tags) {
-      return [];
+  transform(tag: number): string {
+    console.log('Input Tag:', tag);
+    if (!tag) {
+      return null;
     }
-    const result = tags.split(',').map((tag) => +tag.trim());
+    console.log('Tags value:', this.tagsValue);
 
-    console.log('Output Result:', result);
-
-    return result;
+    return this.tagsValue.find((v) => v.id === tag)?.name;
   }
 }

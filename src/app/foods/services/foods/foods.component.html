@@ -1,4 +1,7 @@
-{{ tags$ | async | json }}
+<!-- {{ tags$ | async | json }} -->
+
+<ng-container *ngIf="tags$ | async">{{ "1" | tagsPipe }}</ng-container>
+<app-nutri-score [nutriScore]="nutriscore"></app-nutri-score>
 
 <input type="text" placeholder="Search" #filter />
 <button class="primary" type="button">Search</button>
@@ -35,9 +38,9 @@
     </dxi-column>
     <dxi-column dataField="photo" caption="photo"></dxi-column>
     <dxi-column caption="tags" cellTemplate="tags">
-      <!-- <div *dxTemplate="let data of 'tags'">
+      <div *dxTemplate="let data of 'tags'">
         {{ data.value | tagsPipe }}
-      </div> -->
+      </div>
     </dxi-column>
     <div *dxTemplate="let d of 'tags'">
       <div [dataSource]="tagsArray"></div>

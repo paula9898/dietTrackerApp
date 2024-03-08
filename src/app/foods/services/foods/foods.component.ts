@@ -18,6 +18,7 @@ export class FoodsComponent implements OnInit {
   tagsArray: any[] = [];
   events: Array<string> = [];
   tags$ = this.dictsStateService.tags$;
+  nutriscore = 'B';
 
   constructor(
     private foodStateService: FoodStateService,
