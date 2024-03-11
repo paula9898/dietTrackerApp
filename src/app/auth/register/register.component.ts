@@ -6,7 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../models/user.model';
 import { matchpassword } from './matchpassword.validator';
 
@@ -22,7 +22,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private signupService: SignupService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -59,6 +60,7 @@ export class RegisterComponent implements OnInit {
       next: (result) => {
         console.log(result);
         alert('User Registered successfully!!');
+        this.router.navigate(['../login'], { relativeTo: this.route });
       },
       error: (error) => {
         console.log('cos nie pyklo');

@@ -20,6 +20,7 @@ import { TagsPipePipe } from './tags-pipe.pipe';
 import { RegisterComponent } from './auth/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NutriScoreComponent } from './foods/services/foods/nutri-score/nutri-score/nutri-score.component';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NutriScoreComponent } from './foods/services/foods/nutri-score/nutri-sc
     TagsPipePipe,
     RegisterComponent,
     NutriScoreComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
