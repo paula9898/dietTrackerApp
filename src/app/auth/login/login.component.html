@@ -1,6 +1,10 @@
 <div class="login">
   <h1>Login</h1>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <form
+    *ngIf="!isLoggedIn"
+    [formGroup]="loginForm"
+    (ngSubmit)="loginForm.valid && onSubmit()"
+  >
     <div class="form-group">
       <label for="username">Username</label>
       <input
@@ -20,6 +24,6 @@
       <input type="password" formControlName="password" class="form-control" />
     </div>
 
-    <button class="btn btn-primary btn-block">Sign Up</button>
+    <button class="btn btn-primary btn-block">Login</button>
   </form>
 </div>

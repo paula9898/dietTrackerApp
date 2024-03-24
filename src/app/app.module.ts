@@ -21,6 +21,8 @@ import { RegisterComponent } from './auth/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NutriScoreComponent } from './foods/services/foods/nutri-score/nutri-score/nutri-score.component';
 import { LoginComponent } from './auth/login/login.component';
+import { DiaryPageComponent } from './diary/diary-page/diary-page.component';
+import { NavBarComponent } from './shared/menu/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { LoginComponent } from './auth/login/login.component';
     RegisterComponent,
     NutriScoreComponent,
     LoginComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
