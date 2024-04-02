@@ -23,7 +23,7 @@ import { NutriScoreComponent } from './foods/services/foods/nutri-score/nutri-sc
 import { LoginComponent } from './auth/login/login.component';
 import { DiaryPageComponent } from './diary/diary-page/diary-page.component';
 import { NavBarComponent } from './shared/menu/nav-bar/nav-bar.component';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +46,7 @@ import { NavBarComponent } from './shared/menu/nav-bar/nav-bar.component';
     MatProgressSpinnerModule,
     MatDialogModule,
     ReactiveFormsModule,
+    MatToolbarModule,
   ],
   providers: [
     {

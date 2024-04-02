@@ -1,9 +1,34 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row
+    ><h3>YourFoodDiary</h3>
+    <span class="spacer"></span>
+
+    <div>
+      <button
+        mat-raised-button
+        color="primary"
+        routerLink="/login"
+        routerLinkActive="active"
+      >
+        Login
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        routerLink="/register"
+        routerLinkActive="active"
+      >
+        Register
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
 <header>
   <nav>
     <a [routerLink]="['/']">Home</a>
     |
     <a [routerLink]="['/diary']">Diary</a>
     |
-    <a [routerLink]="['/']">Foods</a>
+    <a [routerLink]="['/food']">Food</a>
   </nav>
 </header>
