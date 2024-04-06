@@ -1,27 +1,30 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row
-    ><h3>YourFoodDiary</h3>
-    <span class="spacer"></span>
+  <h3>YourFoodDiary</h3>
+  <span class="spacer"></span>
+  <div class="loginUser">
+    <mat-flat-button
+      class="login"
+      routerLink="/signin"
+      routerLinkActive="active"
+    >
+      Login
+    </mat-flat-button>
+    <mat-flat-button
+      class="register"
+      routerLink="/signup"
+      routerLinkActive="active"
+    >
+      Register
+    </mat-flat-button>
+  </div>
 
-    <div>
-      <button
-        mat-raised-button
-        color="primary"
-        routerLink="/login"
-        routerLinkActive="active"
-      >
-        Login
-      </button>
-      <button
-        mat-raised-button
-        color="primary"
-        routerLink="/register"
-        routerLinkActive="active"
-      >
-        Register
-      </button>
-    </div>
-  </mat-toolbar-row>
+  <mat-flat-button
+    class="register"
+    routerLink="/register"
+    routerLinkActive="active"
+  >
+    Logout
+  </mat-flat-button>
 </mat-toolbar>
 <header>
   <nav>

@@ -21,11 +21,11 @@ const routes: Routes = [
       import('./diary/diary.module').then((m) => m.DiaryModule),
   },
   {
-    path: 'register',
+    path: 'signup',
     component: RegisterComponent,
   },
   {
-    path: 'login',
+    path: 'signin',
     component: LoginComponent,
   },
 ];

@@ -9,6 +9,7 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../models/user.model';
 import { matchpassword } from './matchpassword.validator';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-register',
@@ -23,7 +24,8 @@ export class RegisterComponent implements OnInit {
     private signupService: SignupService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AuthenticationService
   ) {}
 
   ngOnInit(): void {
@@ -56,11 +58,11 @@ export class RegisterComponent implements OnInit {
     user.email = this.registerForm.controls['email'].value;
     user.password = this.registerForm.controls['password'].value;
 
-    this.signupService.register(user).subscribe({
+    this.authService.register(user).subscribe({
       next: (result) => {
         console.log(result);
         alert('User Registered successfully!!');
-        this.router.navigate(['../login'], { relativeTo: this.route });
+        this.router.navigate(['../signin'], { relativeTo: this.route });
       },
       error: (error) => {
         console.log('cos nie pyklo');

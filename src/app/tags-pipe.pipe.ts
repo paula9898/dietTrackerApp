@@ -9,6 +9,7 @@ import { Tag } from './shared/dicts/models/tag.model';
 export class TagsPipePipe implements PipeTransform {
   tagsArray: any[] = [];
   tagsValue = this.dictsStateService.tagsValue;
+
   constructor(private dictsStateService: DictsStateService) {}
 
   transform(tag: number): string {
@@ -16,8 +17,6 @@ export class TagsPipePipe implements PipeTransform {
     if (!tag) {
       return null;
     }
-    console.log('Tags value:', this.tagsValue);
-
     return this.tagsValue.find((v) => v.id === tag)?.name;
   }
 }

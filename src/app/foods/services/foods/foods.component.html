@@ -1,7 +1,7 @@
-<!-- {{ tags$ | async | json }} -->
+{{ tags$ | async | json }}
 
-<ng-container *ngIf="tags$ | async">{{ "1" | tagsPipe }}</ng-container>
-<app-nutri-score [nutriScore]="nutriscore"></app-nutri-score>
+<ng-container *ngIf="tags$ | async">{{ 3 | tagsPipe }}</ng-container>
+<!-- <app-nutri-score [nutriScore]="nutriscore"></app-nutri-score> -->
 
 <input type="text" placeholder="Search" #filter />
 <button class="primary" type="button">Search</button>
@@ -10,7 +10,14 @@
   <dx-data-grid
     [dataSource]="foodsArray"
     keyExpr="id"
-    [columns]="['name', 'caloriesPer100g', 'weight', 'nutriScore', 'photo']"
+    [columns]="[
+      'name',
+      'caloriesPer100g',
+      'weight',
+      'nutriScore',
+      'photo',
+      'tag'
+    ]"
     [showBorders]="true"
     (onRowInserted)="onRowInserted($event)"
     (onRowRemoved)="onRowRemoved($event)"
@@ -33,21 +40,18 @@
     <dxi-column dataField="weight" caption="weight"></dxi-column>
     <dxi-column dataField="nutriScore" caption="nutriScore">
       <div *dxTemplate="let data of 'cellTemplate'">
-        <app-nutri-score [nutriScore]="data.data.nutriScore"></app-nutri-score>
+        <!-- <app-nutri-score [nutriScore]="data.data.nutriScore"></app-nutri-score> -->
       </div>
     </dxi-column>
     <dxi-column dataField="photo" caption="photo"></dxi-column>
-    <dxi-column caption="tags" cellTemplate="tags">
-      <div *dxTemplate="let data of 'tags'">
-        {{ data.value | tagsPipe }}
+    <dxi-column dataField="tag" caption="tag ">
+      <div *dxTemplate="let data of 'cellTemplate'">
+        <div>{{ data.tag | tagsPipe }}</div>
       </div>
     </dxi-column>
-    <div *dxTemplate="let d of 'tags'">
+    <!-- <div *dxTemplate="let d of 'tags'">
       <div [dataSource]="tagsArray"></div>
-    </div>
-    <div *dxTemplate="let d of 'tags'" [value]="d.id">
-      {{ d.name | async }}
-    </div>
+    </div> -->
     >
   </dx-data-grid>
 

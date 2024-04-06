@@ -7,4 +7,5 @@ export interface FoodDetails {
   nutriScore?: NutriScore;
   tags?: string;
   photo: string;
+  tag: number;
 }

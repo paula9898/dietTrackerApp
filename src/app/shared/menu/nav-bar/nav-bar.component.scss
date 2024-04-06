@@ -6,3 +6,14 @@ mat-toolbar {
   display: flex;
   justify-content: space-between;
 }
+
+.loginUser {
+  display: flex;
+  justify-content: space-between;
+  padding: 200px;
+}
+
+.login,
+.register {
+  margin-right: 10px;
+}

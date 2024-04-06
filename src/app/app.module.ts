@@ -24,6 +24,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { DiaryPageComponent } from './diary/diary-page/diary-page.component';
 import { NavBarComponent } from './shared/menu/nav-bar/nav-bar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { httpInterceptorProviders } from './_helpers/http.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,13 +49,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     ReactiveFormsModule,
     MatToolbarModule,
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: LoadingInterceptor,
-      multi: true,
-    },
-  ],
+  // providers: [httpInterceptorProviders],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}
