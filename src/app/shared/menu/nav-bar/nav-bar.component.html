@@ -2,25 +2,28 @@
   <h3>YourFoodDiary</h3>
   <span class="spacer"></span>
   <div class="loginUser">
-    <mat-flat-button
-      class="login"
-      routerLink="/signin"
-      routerLinkActive="active"
+    <ng-container *ngIf="!isLoggedIn">
+      <mat-flat-button
+        class="login"
+        routerLink="/signin"
+        routerLinkActive="active"
+      >
+        Login
+      </mat-flat-button>
+      <mat-flat-button
+        class="register"
+        routerLink="/signup"
+        routerLinkActive="active"
+      >
+        Register
+      </mat-flat-button></ng-container
     >
-      Login
-    </mat-flat-button>
-    <mat-flat-button
-      class="register"
-      routerLink="/signup"
-      routerLinkActive="active"
-    >
-      Register
-    </mat-flat-button>
   </div>
-
-  <mat-flat-button (click)="onLogout()" class="logOut" [routerLink]="['/']">
-    Logout
-  </mat-flat-button>
+  <ng-container *ngIf="isLoggedIn">
+    <mat-flat-button (click)="onLogout()" class="logOut" [routerLink]="['/']">
+      Logout
+    </mat-flat-button>
+  </ng-container>
 </mat-toolbar>
 <header>
   <nav>

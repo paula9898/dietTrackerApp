@@ -37,6 +37,8 @@ export class StorageService {
 
   public logOut() {
     window.sessionStorage.removeItem(USER_KEY);
+
+    window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.clear();
     window.localStorage.removeItem;
   }
