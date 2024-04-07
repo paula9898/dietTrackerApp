@@ -18,11 +18,7 @@
     </mat-flat-button>
   </div>
 
-  <mat-flat-button
-    class="register"
-    routerLink="/register"
-    routerLinkActive="active"
-  >
+  <mat-flat-button (click)="onLogout()" class="logOut" [routerLink]="['/']">
     Logout
   </mat-flat-button>
 </mat-toolbar>

@@ -25,6 +25,7 @@ import { DiaryPageComponent } from './diary/diary-page/diary-page.component';
 import { NavBarComponent } from './shared/menu/nav-bar/nav-bar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { httpInterceptorProviders } from './_helpers/http.interceptor';
+import { CookieService } from 'ngx-cookie-service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +51,7 @@ import { httpInterceptorProviders } from './_helpers/http.interceptor';
     MatToolbarModule,
   ],
   // providers: [httpInterceptorProviders],
+  providers: [CookieService],
 
   bootstrap: [AppComponent],
 })
