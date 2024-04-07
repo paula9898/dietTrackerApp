@@ -18,6 +18,7 @@ export class FoodsComponent implements OnInit {
   tagsArray: any[] = [];
   events: Array<string> = [];
   tags$ = this.dictsStateService.tags$;
+  nutriscore = 'B';
 
   constructor(
     private foodStateService: FoodStateService,
@@ -30,8 +31,11 @@ export class FoodsComponent implements OnInit {
     this.foodStateService.getFoods();
     this.foodStateService.foodsResponse$.subscribe((response) => {
       // Extract the 'data' array from the response
-      this.foodsArray = response.data;
-
+      this.foodsArray = response.data.map((food) => ({
+        ...food,
+        // Extract the tag number directly
+        tag: food.tags ? parseInt(food.tags) : null,
+      }));
       // this.tagsArray.forEach((food) => {
       //   console.log('Tags for', food.name, ':', food.tags);
       //   console.log('Tags type for', food.name, ':', typeof food.tags);

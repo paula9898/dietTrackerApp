@@ -1,0 +1,51 @@
+<form [formGroup]="registerForm" (ngSubmit)="OnFormSubmit()">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input
+      type="text"
+      formControlName="userName"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && fval.userName.errors }"
+      placeholder="Enter First Name here"
+    />
+    <div *ngIf="submitted && fval.userName.errors" class="invalid-feedback">
+      <div *ngIf="fval.firstName.errors.required">userName is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      type="text"
+      formControlName="email"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && fval.email.errors }"
+      placeholder="Enter email here"
+    />
+    <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
+      <div *ngIf="fval.email.errors.required">Email is required</div>
+      <div *ngIf="fval.email.errors.email">Enter valid email address</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      formControlName="password"
+      autocomplete="on"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group">
+    <label for="password">Confirm Password</label>
+    <input
+      type="password"
+      formControlName="confirmedPassword"
+      autocomplete="on"
+      class="form-control"
+    />
+  </div>
+  <span *ngIf="registerForm.errors?.['passwordmatcherror']">
+    Password does not match</span
+  >
+  <button class="btn btn-primary btn-block">Sign Up</button>
+</form>

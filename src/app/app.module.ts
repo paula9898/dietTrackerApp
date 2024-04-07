@@ -17,14 +17,26 @@ import { LoadingInterceptor } from './spinner-interceptor';
 import { FoodDetailsComponent } from './foods/services/foods/food-details/food-details.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TagsPipePipe } from './tags-pipe.pipe';
-
+import { RegisterComponent } from './auth/register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NutriScoreComponent } from './foods/services/foods/nutri-score/nutri-score/nutri-score.component';
+import { LoginComponent } from './auth/login/login.component';
+import { DiaryPageComponent } from './diary/diary-page/diary-page.component';
+import { NavBarComponent } from './shared/menu/nav-bar/nav-bar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { httpInterceptorProviders } from './_helpers/http.interceptor';
+import { CookieService } from 'ngx-cookie-service';
 @NgModule({
   declarations: [
     AppComponent,
     FoodsComponent,
     SpinnerComponent,
     FoodDetailsComponent,
-    [TagsPipePipe],
+    TagsPipePipe,
+    RegisterComponent,
+    NutriScoreComponent,
+    LoginComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,14 +47,12 @@ import { TagsPipePipe } from './tags-pipe.pipe';
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+    ReactiveFormsModule,
+    MatToolbarModule,
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: LoadingInterceptor,
-      multi: true,
-    },
-  ],
+  // providers: [httpInterceptorProviders],
+  providers: [CookieService],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}

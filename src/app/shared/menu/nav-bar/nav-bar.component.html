@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+  <h3>YourFoodDiary</h3>
+  <span class="spacer"></span>
+  <div class="loginUser">
+    <ng-container *ngIf="!isLoggedIn">
+      <mat-flat-button
+        class="login"
+        routerLink="/signin"
+        routerLinkActive="active"
+      >
+        Login
+      </mat-flat-button>
+      <mat-flat-button
+        class="register"
+        routerLink="/signup"
+        routerLinkActive="active"
+      >
+        Register
+      </mat-flat-button></ng-container
+    >
+  </div>
+  <ng-container *ngIf="isLoggedIn">
+    <mat-flat-button (click)="onLogout()" class="logOut" [routerLink]="['/']">
+      Logout
+    </mat-flat-button>
+  </ng-container>
+</mat-toolbar>
+<header>
+  <nav>
+    <a [routerLink]="['/']">Home</a>
+    |
+    <a [routerLink]="['/diary']">Diary</a>
+    |
+    <a [routerLink]="['/food']">Food</a>
+  </nav>
+</header>

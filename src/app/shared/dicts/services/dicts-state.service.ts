@@ -7,7 +7,7 @@ import { Tag, TagResponse } from '../models/tag.model';
   providedIn: 'root',
 })
 export class DictsStateService {
-  private tags = new Subject<Tag[]>();
+  private tags = new BehaviorSubject<Tag[]>(null);
   private _tagsResponse$ = new BehaviorSubject<TagResponse>({
     data: [],
     length: 0,
@@ -17,6 +17,9 @@ export class DictsStateService {
   // }
   error$ = new BehaviorSubject<any>(null);
   tags$ = this.tags.asObservable();
+  get tagsValue() {
+    return this.tags.getValue();
+  }
 
   constructor(private dictService: DictService) {}
 
