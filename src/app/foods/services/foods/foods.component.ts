@@ -3,21 +3,22 @@ import { FoodStateService } from '../food-state.service';
 import { FoodPayload } from '../../models/food-payload.model';
 import { DialogService } from '../dialog.service';
 import { Food } from '../../models/food.model';
-import { TagsPipePipe } from 'src/app/tags-pipe.pipe';
+import { TagsPipe } from 'src/app/tags.pipe';
 import { DictsStateService } from 'src/app/shared/dicts/services/dicts-state.service';
+import { Tag } from 'src/app/shared/dicts/models/tag.model';
 
 @Component({
   selector: 'app-foods',
   templateUrl: './foods.component.html',
   styleUrl: './foods.component.scss',
-  providers: [TagsPipePipe],
+  providers: [TagsPipe],
 })
 export class FoodsComponent implements OnInit {
-  foodsResponse$ = this.foodStateService.foodsResponse$; //to sa moje dane ktore sa uaktiualniane z kazdm request getfood
+  readonly foodsResponse$ = this.foodStateService.foodsResponse$; //to sa moje dane ktore sa uaktiualniane z kazdm request getfood
+  readonly tags$ = this.dictsStateService.tags$;
   foodsArray: any[] = [];
-  tagsArray: any[] = [];
-  events: Array<string> = [];
-  tags$ = this.dictsStateService.tags$;
+  tagsArray: Tag[] = [];
+  events: string[] = [];
   nutriscore = 'B';
 
   constructor(
@@ -34,7 +35,7 @@ export class FoodsComponent implements OnInit {
       this.foodsArray = response.data.map((food) => ({
         ...food,
         // Extract the tag number directly
-        tag: food.tags ? parseInt(food.tags) : null,
+        tags: food.tags?.split(',').map((v) => +v),
       }));
       // this.tagsArray.forEach((food) => {
       //   console.log('Tags for', food.name, ':', food.tags);

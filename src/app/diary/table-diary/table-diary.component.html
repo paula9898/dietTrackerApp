@@ -1,1 +1,38 @@
-<p>table-diary works!</p>
+<p><b>Your Diet Dairy</b></p>
+
+<mat-form-field>
+  <mat-label>Food</mat-label>
+  <mat-select> </mat-select>
+</mat-form-field>
+
+<table #table mat-table [dataSource]="data">
+  <ng-container matColumnDef="Id">
+    <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="Meal">
+    <mat-header-cell *matHeaderCellDef>Meal</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.meal }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="Date">
+    <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.date }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="Food">
+    <mat-header-cell *matHeaderCellDef>Food</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.food }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="Weight">
+    <mat-header-cell *matHeaderCellDef>Weight</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.weight }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="Calories">
+    <mat-header-cell *matHeaderCellDef>Calories</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.calories }}</mat-cell>
+  </ng-container>
+  <!-- <tr mat-header-row *matHeaderRowDef="columndefs"></tr>
+  <tr mat-row *matRowDef="let row; columns: columndefs"></tr> -->
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</table>

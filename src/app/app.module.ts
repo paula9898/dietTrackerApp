@@ -16,23 +16,25 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoadingInterceptor } from './spinner-interceptor';
 import { FoodDetailsComponent } from './foods/services/foods/food-details/food-details.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { TagsPipePipe } from './tags-pipe.pipe';
+import { TagsPipe } from './tags.pipe';
 import { RegisterComponent } from './auth/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NutriScoreComponent } from './foods/services/foods/nutri-score/nutri-score/nutri-score.component';
 import { LoginComponent } from './auth/login/login.component';
 import { DiaryPageComponent } from './diary/diary-page/diary-page.component';
 import { NavBarComponent } from './shared/menu/nav-bar/nav-bar.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
+
 import { httpInterceptorProviders } from './_helpers/http.interceptor';
 import { CookieService } from 'ngx-cookie-service';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 @NgModule({
   declarations: [
     AppComponent,
     FoodsComponent,
     SpinnerComponent,
     FoodDetailsComponent,
-    TagsPipePipe,
+    TagsPipe,
     RegisterComponent,
     NutriScoreComponent,
     LoginComponent,

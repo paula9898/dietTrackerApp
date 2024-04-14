@@ -1,6 +1,6 @@
 {{ tags$ | async | json }}
 
-<ng-container *ngIf="tags$ | async">{{ 3 | tagsPipe }}</ng-container>
+<!-- <ng-container *ngIf="tags$ | async">{{ 3 | tagsPipe }}</ng-container> -->
 <!-- <app-nutri-score [nutriScore]="nutriscore"></app-nutri-score> -->
 
 <input type="text" placeholder="Search" #filter />
@@ -16,7 +16,7 @@
       'weight',
       'nutriScore',
       'photo',
-      'tag'
+      'tags'
     ]"
     [showBorders]="true"
     (onRowInserted)="onRowInserted($event)"
@@ -44,9 +44,9 @@
       </div>
     </dxi-column>
     <dxi-column dataField="photo" caption="photo"></dxi-column>
-    <dxi-column dataField="tag" caption="tag ">
-      <div *dxTemplate="let data of 'cellTemplate'">
-        <div>{{ data.tag | tagsPipe }}</div>
+    <dxi-column dataField="tags" cellTemplate="tags">
+      <div *dxTemplate="let data of 'tags'">
+        <div>{{ data.displayValue | tagsPipe }}</div>
       </div>
     </dxi-column>
     <!-- <div *dxTemplate="let d of 'tags'">
