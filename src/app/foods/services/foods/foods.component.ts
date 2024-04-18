@@ -37,6 +37,7 @@ export class FoodsComponent implements OnInit {
         // Extract the tag number directly
         tags: food.tags?.split(',').map((v) => +v),
       }));
+
       // this.tagsArray.forEach((food) => {
       //   console.log('Tags for', food.name, ':', food.tags);
       //   console.log('Tags type for', food.name, ':', typeof food.tags);
