@@ -1,9 +1,35 @@
 <p><b>Your Diet Dairy</b></p>
+<!-- {{ foodsResponse$ | async | json }} -->
 
 <mat-form-field>
   <mat-label>Food</mat-label>
-  <mat-select> </mat-select>
+  <mat-select [(ngModel)]="selectedValue" name="food">
+    <!-- @for (food of foodsArray; track food ) {
+    <mat-option [value]="food.value">{{ food.viewValue }} -->
+    <mat-option *ngFor="let food of foodsArray" [value]="food">{{
+      food
+    }}</mat-option>
+  </mat-select>
 </mat-form-field>
+
+<mat-form-field>
+  <mat-label>Pick a Date!</mat-label>
+  <input matInput [matDatepicker]="picker" [formControl]="date" />
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"> </mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<!-- <mat-form-field>
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker" />
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field> -->
+
+<!-- <input [matDatepicker]="myDatepicker" />
+<mat-datepicker #myDatepicker></mat-datepicker> -->
 
 <table #table mat-table [dataSource]="data">
   <ng-container matColumnDef="Id">

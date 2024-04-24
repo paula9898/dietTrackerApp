@@ -9,6 +9,16 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+// import { MatDateFnsModule } from '@angular/material-date-fns-adapter';
+// import { MatLuxonDateModule } from '@angular/material-luxon-adapter';
+// import { MatMomentDateModule } from '@angular/material-moment-adapter';
+// import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { ReactiveFormsModule } from '@angular/forms'; // if using reactive forms
 
 @NgModule({
   declarations: [
@@ -23,6 +33,15 @@ import { MatSelectModule } from '@angular/material/select';
     MatToolbarModule,
     MatTableModule,
     MatSelectModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    // MatDateFnsModule,
+    // MatLuxonDateModule,
+    // MatMomentDateModule,
+    ReactiveFormsModule,
   ],
 })
 export class DiaryModule {}

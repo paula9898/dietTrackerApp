@@ -4,6 +4,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { DxoMediaResizingComponent } from 'devextreme-angular/ui/nested';
 import { DiaryPageComponent } from './diary/diary-page/diary-page.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 const routes: Routes = [
   {
@@ -31,7 +32,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), MatNativeDateModule],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -18,7 +18,7 @@ import { FoodDetailsComponent } from './foods/services/foods/food-details/food-d
 import { MatDialogModule } from '@angular/material/dialog';
 import { TagsPipe } from './tags.pipe';
 import { RegisterComponent } from './auth/register/register.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NutriScoreComponent } from './foods/services/foods/nutri-score/nutri-score/nutri-score.component';
 import { LoginComponent } from './auth/login/login.component';
 import { DiaryPageComponent } from './diary/diary-page/diary-page.component';
@@ -51,6 +51,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatDialogModule,
     ReactiveFormsModule,
     MatToolbarModule,
+    FormsModule,
   ],
   // providers: [httpInterceptorProviders],
   providers: [CookieService],
